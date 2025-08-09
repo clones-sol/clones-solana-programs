@@ -1,0 +1,66 @@
+{
+    "name": "clones-solana-programs",
+    "version": "1.0.0",
+    "description": "Solana smart contracts for the Clones project - Automated reward distribution system",
+    "main": "index.js",
+    "scripts": {
+        "build": "npm run build:programs && npm run build:client",
+        "build:programs": "cargo build-bpf --manifest-path programs/reward-pool/Cargo.toml",
+        "build:client": "tsc -p client/tsconfig.json",
+        "test": "jest",
+        "test:integration": "jest --config jest.integration.config.js",
+        "test:coverage": "jest --coverage",
+        "deploy:devnet": "node scripts/deploy.js --network devnet",
+        "deploy:mainnet": "node scripts/deploy.js --network mainnet",
+        "lint": "eslint . --ext .ts,.js",
+        "lint:fix": "eslint . --ext .ts,.js --fix",
+        "format": "prettier --write .",
+        "clean": "rm -rf dist/ build/ node_modules/.cache",
+        "setup": "npm install && npm run build"
+    },
+    "keywords": [
+        "solana",
+        "blockchain",
+        "smart-contracts",
+        "rewards",
+        "defi",
+        "clones"
+    ],
+    "author": "Clones Team",
+    "license": "MIT",
+    "devDependencies": {
+        "@types/bn.js": "^5.2.0",
+        "@types/jest": "^30.0.0",
+        "@types/node": "^24.2.0",
+        "@typescript-eslint/eslint-plugin": "^6.0.0",
+        "@typescript-eslint/parser": "^6.0.0",
+        "eslint": "^9.33.0",
+        "eslint-config-prettier": "^9.0.0",
+        "eslint-plugin-prettier": "^5.0.0",
+        "jest": "^30.0.5",
+        "prettier": "^3.6.2",
+        "ts-jest": "^29.1.0",
+        "typescript": "^5.9.2"
+    },
+    "dependencies": {
+        "@solana/buffer-layout": "^4.0.1",
+        "@solana/spl-token": "^0.4.13",
+        "@solana/web3.js": "^1.98.4",
+        "bn.js": "^5.2.2",
+        "bs58": "^6.0.0",
+        "commander": "^14.0.0",
+        "dotenv": "^17.2.1"
+    },
+    "engines": {
+        "node": ">=18.0.0",
+        "npm": ">=9.0.0"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/clones-sol/clones-solana-programs.git"
+    },
+    "bugs": {
+        "url": "https://github.com/clones-sol/clones-solana-programs/issues"
+    },
+    "homepage": "https://github.com/clones-sol/clones-solana-programs#readme"
+}
